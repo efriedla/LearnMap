@@ -22,8 +22,7 @@ public class Learner implements Serializable {
 
 
 	public Learner(){}
-	public Learner(Long id, String firstName, String lastName, String email, String phone, String imageUrl, String desc) {
-		this.id = id;
+	public Learner( String firstName, String lastName, String email, String phone, String imageUrl, String desc) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
