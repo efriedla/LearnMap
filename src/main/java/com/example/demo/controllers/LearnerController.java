@@ -17,6 +17,12 @@ public class LearnerController {
 		this.learnerService = learnerService;
 	}
 
+	@GetMapping("/template")
+	public String template(){
+		System.out.println("inside index action");
+		return "template";
+	}
+
 	@GetMapping("/all")
 	public ResponseEntity<List<Learner>> getAllLearner(){
 		List<Learner> learners =  learnerService.findAllLearners();
