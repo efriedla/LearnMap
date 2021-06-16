@@ -15,11 +15,6 @@ public class HomeController {
 	@GetMapping("/")
 	public String index() {
 		System.out.println("inside index action");
-		return "redirect:index";
-	}
-	@RequestMapping(value = "/index")
-	public String index2() {
-		System.out.println("inside index2 action");
 		return "index";
 	}
 
