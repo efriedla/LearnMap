@@ -14,11 +14,11 @@ import java.util.List;
 @RestController
 @RequestMapping("learner")
 @Log
-public class LearnerController {
+public class LearnerControllerAPI {
 	@Autowired
 	private final LearnerService learnerService;
 
-	public LearnerController(LearnerService learnerService) {
+	public LearnerControllerAPI(LearnerService learnerService) {
 		this.learnerService = learnerService;
 	}
 
