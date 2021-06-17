@@ -48,19 +48,23 @@ public class LearnerController {
 //			return "home";
 //		}
 //	}
-	@GetMapping
-	public List<Learner> hello(){
-		return List.of(
-				new Learner(
+	@GetMapping("/home")
+	public String demoLearnerInfo(Model model){
+		//show in page
+		model.addAttribute("test", "this is from controller");
+
+
+			Learner bob = new Learner(
 						"bob",
 						"man",
 						"bob@gmail",
 						"phone",
-						"bob's photo",
+						"https://images.pexels.com/photos/4827667/pexels-photo-4827667.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
 						"description of bob"
+				);
+			model.addAttribute(bob);
 
-				)
-		);
+		return "home";
 	}
 
 }

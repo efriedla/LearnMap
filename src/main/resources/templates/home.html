@@ -15,9 +15,17 @@
 <p>Learner Home</p>
 <div>
     <h1>Confirmed</h1>
-    <span th:text = "${student.email}"></span>
-    <span th:text = "${student.username}"></span>
-    <img th:src="${student.imagePath}" alt="your image uploaded" />
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" th:src="@{${learner.imageUrl}}" alt="Card image cap">
+        <div class="card-body">
+            <p class="card-text"><span th:text = "${learner.email}"></span></p>
+            <p><span th:text = "${learner.firstName}"></span>
+                <span th:text = "${learner.lastName}"></span>
+            </p>
+        </div>
+    </div>
+
+<!--    <img th:src="${learner.imageUrl}" alt="your image uploaded" />-->
 </div>
 <footer th:replace="template :: footer"></footer>
 </body>
