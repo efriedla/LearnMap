@@ -12,13 +12,20 @@
 <nav th:replace="template :: nav"></nav>
 
 
-<div class="center">
+<div class="class="container">
     <h1>All Learners</h1>
     <tr th:each="learner: ${learners}">
-        <td th:text="${learner.id}" />
-        <td th:text="${learner.email}" />
-        <td th:text="${learner.firstName}" />
-        <td th:text="${learner.lastName}" />
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" th:src="@{${learner.imageUrl}}" alt="Card image cap">
+                <div class="card-body">
+                    <h3 th:text="${learner.id}"></h3>
+                    <p class="card-text"><span th:text = "${learner.email}"></span></p>
+                    <p><span th:text = "${learner.firstName}"></span>
+                        <span th:text = "${learner.lastName}"></span>
+                    </p>
+                </div>
+            </div>
+
     </tr>
 
     <!--    <tr th:each="learner: ${learners}">-->
