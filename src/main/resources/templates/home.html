@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org"
+       xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="en">
+<head>
+    <meta charset = "ISO-8859-1" />
+    <link href = "./css/styles.css" rel = "stylesheet"/>
+    <title>LearnMap Home</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+</head>
+<body>
+<nav th:replace="template :: nav"></nav>
+<!--<div th:replace="template ::  about"></div>-->
+<h2>Getting started</h2>
+<p>Learner Home</p>
+<div>
+    <h1>Confirmed</h1>
+    <span th:text = "${student.email}"></span>
+    <span th:text = "${student.username}"></span>
+    <img th:src="${student.imagePath}" alt="your image uploaded" />
+</div>
+<footer th:replace="template :: footer"></footer>
+</body>
+</html>
