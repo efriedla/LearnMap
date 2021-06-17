@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Supplier;
 
 
 @Controller
@@ -48,23 +50,15 @@ public class LearnerController {
 //			return "home";
 //		}
 //	}
-	@GetMapping("/home")
-	public String demoLearnerInfo(Model model){
+	@GetMapping("/allLearners")
+	public String findAllLearners(Model model){
 		//show in page
-		model.addAttribute("test", "this is from controller");
+//		log.info((Supplier<String>) learnerService.findAllLearners());
+//		log.info((Supplier<String>) learnerService.findLearnerById(0L));
+		model.addAttribute("learners", learnerService.findAllLearners());
 
 
-			Learner bob = new Learner(
-						"bob",
-						"man",
-						"bob@gmail",
-						"phone",
-						"https://images.pexels.com/photos/4827667/pexels-photo-4827667.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-						"description of bob"
-				);
-			model.addAttribute(bob);
-
-		return "home";
+		return "allLearners";
 	}
 
 }

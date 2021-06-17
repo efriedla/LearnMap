@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org"
+       xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="en">
+<head>
+    <meta charset = "ISO-8859-1" />
+    <link href = "./css/styles.css" rel = "stylesheet"/>
+    <title>LearnMap Home</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+</head>
+<body>
+<nav th:replace="template :: nav"></nav>
+
+
+<div class="center">
+    <h1>All Learners</h1>
+    <tr th:each="learner: ${learners}">
+        <td th:text="${learner.id}" />
+        <td th:text="${learner.email}" />
+        <td th:text="${learner.firstName}" />
+        <td th:text="${learner.lastName}" />
+    </tr>
+
+    <!--    <tr th:each="learner: ${learners}">-->
+<!--        <td th:text="${learners[0].firstName}" />-->
+<!--        <td th:text="${learner.name}" />-->
+<!--    </tr>-->
+<!--    <div class="card" style="width: 18rem;">-->
+<!--        <img class="card-img-top" th:src="@{${learner.imageUrl}}" alt="Card image cap">-->
+<!--        <div class="card-body">-->
+<!--            <p class="card-text"><span th:text = "${learner.email}"></span></p>-->
+<!--            <p><span th:text = "${learner.firstName}"></span>-->
+<!--                <span th:text = "${learner.lastName}"></span>-->
+<!--            </p>-->
+<!--        </div>-->
+<!--    </div>-->
+
+</div>
+<footer th:replace="template :: footer"></footer>
+</body>
+</html>
