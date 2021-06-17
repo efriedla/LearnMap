@@ -21,4 +21,9 @@ public class HomeController {
 	public String template(){
 		return "template";
 	}
+
+	@GetMapping("/404")
+	public String error(){
+		return "error";
+	}
 }
