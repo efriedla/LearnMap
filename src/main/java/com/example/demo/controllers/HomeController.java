@@ -14,13 +14,11 @@ public class HomeController {
 
 	@GetMapping("/")
 	public String index() {
-		System.out.println("inside index action");
 		return "index";
 	}
 
 	@GetMapping("/template")
 	public String template(){
-		System.out.println("inside template action");
 		return "template";
 	}
 }

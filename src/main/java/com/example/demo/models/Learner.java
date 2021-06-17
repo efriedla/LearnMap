@@ -5,8 +5,8 @@ import java.io.Serializable;
 
 @Entity
 public class Learner implements Serializable {
-	public Learner(String desc) {
-		this.desc = desc;
+	public Learner(String description) {
+		this.description = description;
 	}
 
 	@Id
@@ -18,17 +18,17 @@ public class Learner implements Serializable {
 	private String email;
 	private String phone;
 	private String imageUrl;
-	private String desc;
+	private String description;
 
 
 	public Learner(){}
-	public Learner( String firstName, String lastName, String email, String phone, String imageUrl, String desc) {
+	public Learner( String firstName, String lastName, String email, String phone, String imageUrl, String description) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
 		this.phone = phone;
 		this.imageUrl = imageUrl;
-		this.desc = desc;
+		this.description = description;
 	}
 
 	public Long getId() {
@@ -80,11 +80,11 @@ public class Learner implements Serializable {
 	}
 
 	public String getDesc() {
-		return desc;
+		return description;
 	}
 
-	public void setDesc(String desc) {
-		this.desc = desc;
+	public void setDesc(String description) {
+		this.description = description;
 	}
 
 	@Override
@@ -96,7 +96,7 @@ public class Learner implements Serializable {
 				", email='" + email + '\'' +
 				", phone='" + phone + '\'' +
 				", imageUrl='" + imageUrl + '\'' +
-				", desc='" + desc + '\'' +
+				", description='" + description + '\'' +
 				'}';
 	}
 }
