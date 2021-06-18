@@ -27,7 +27,7 @@ public class LearnerConfig {
 					"man",
 					"jim@gmail",
 					"phone",
-					"https://images.pexels.com/photos/4827667/pexels-photo-4827667.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+					"https://images.pexels.com/photos/4827663/pexels-photo-4827663.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
 					"description of jim"
 			);
 			Learner alex = new Learner(
@@ -35,7 +35,7 @@ public class LearnerConfig {
 					"fjksdf",
 					"Alex@gmail",
 					"phone",
-					"https://images.pexels.com/photos/4827667/pexels-photo-4827667.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+					"https://images.pexels.com/photos/4827677/pexels-photo-4827677.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
 					"description of jim"
 			);
 			repo.saveAll(

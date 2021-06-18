@@ -1,14 +1,22 @@
 package com.example.demo.models;
 
+import lombok.*;
+import lombok.experimental.FieldDefaults;
+import org.springframework.stereotype.Component;
+
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 
-@Entity
+//@Getter
+//@Setter
+////@NoArgsConstructor
+////@RequiredArgsConstructor
+//@AllArgsConstructor
+//@FieldDefaults(level = AccessLevel.PRIVATE)
+@Entity //database
+//@Component //spring boot component
 public class Learner implements Serializable {
-	public Learner(String description) {
-		this.description = description;
-	}
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(nullable = false, updatable = false)
@@ -19,6 +27,15 @@ public class Learner implements Serializable {
 	private String phone;
 	private String imageUrl;
 	private String description;
+	//	for security
+	private String username;
+	private String password;
+	//  for preferences
+	private Date dob;
+	private String gender;
+	private String likes;
+
+
 
 
 	public Learner(){}
