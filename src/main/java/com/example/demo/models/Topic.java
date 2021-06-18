@@ -7,12 +7,14 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
-//@Getter
-//@Setter
-//@NoArgsConstructor
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
 //@RequiredArgsConstructor
 //@FieldDefaults(level = AccessLevel.PRIVATE)
-//@Entity //database
+@Entity //database
 //@Component //spring boot component
 public class Topic implements Serializable {
 	@Id
