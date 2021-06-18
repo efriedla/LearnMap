@@ -1,11 +1,18 @@
 package com.example.demo.models;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import lombok.*;
+
+import javax.persistence.*;
 import java.io.Serializable;
 
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
+//@RequiredArgsConstructor
+//@FieldDefaults(level = AccessLevel.PRIVATE)
+@Entity //database
 public class Resources implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
