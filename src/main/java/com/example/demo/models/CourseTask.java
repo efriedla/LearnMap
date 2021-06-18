@@ -1,9 +1,5 @@
 package com.example.demo.models;
 
-import lombok.*;
-import lombok.experimental.FieldDefaults;
-import org.springframework.stereotype.Component;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
@@ -15,18 +11,22 @@ import java.util.Date;
 //@FieldDefaults(level = AccessLevel.PRIVATE)
 @Entity //database
 //@Component //spring boot component
-public class Course implements Serializable {
+public class CourseTask implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(nullable = false, updatable = false)
-	private Long courseId;
-	private String topic;
-	private String cName;
-	private String cDescription;
-	private String cResources;
-	private String cUsedFor;
-	private String cStatus;
-	private Date timeLine;
-	private Date lastActive;
+	private Long ctId;
+	private String ctName;
+	private String ctUsedFor;
+	private String importance;
 	private String rating;
+	private Date timeLine;
+	private String resources;
+
+
+
+
+
+
+
 }

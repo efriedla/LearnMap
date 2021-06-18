@@ -6,15 +6,16 @@ import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 
-@Getter
-@Setter
-//@NoArgsConstructor
-//@RequiredArgsConstructor
-@AllArgsConstructor
-@FieldDefaults(level = AccessLevel.PRIVATE)
+//@Getter
+//@Setter
+////@NoArgsConstructor
+////@RequiredArgsConstructor
+//@AllArgsConstructor
+//@FieldDefaults(level = AccessLevel.PRIVATE)
 @Entity //database
-@Component //spring boot component
+//@Component //spring boot component
 public class Learner implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -26,6 +27,14 @@ public class Learner implements Serializable {
 	private String phone;
 	private String imageUrl;
 	private String description;
+	//	for security
+	private String username;
+	private String password;
+	//  for preferences
+	private Date dob;
+	private String gender;
+	private String likes;
+
 
 
 
