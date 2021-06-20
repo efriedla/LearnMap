@@ -26,4 +26,14 @@ public class HomeController {
 	public String error(){
 		return "error";
 	}
+	//login
+	@GetMapping("/login")
+	public String login(){
+		return "login";
+	}
+	@GetMapping("/register")
+	public String LearnerRegistration(){
+		return "registerUser";
+	}
+
 }

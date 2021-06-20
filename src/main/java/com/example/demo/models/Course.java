@@ -2,15 +2,12 @@ package com.example.demo.models;
 
 import lombok.*;
 import lombok.experimental.FieldDefaults;
-import org.springframework.data.domain.Page;
-import org.springframework.stereotype.Component;
+
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 @Getter
 @Setter
@@ -23,6 +20,7 @@ import java.util.Set;
 @Table
 //@Component //spring boot component
 public class Course implements Serializable {
+	static final long serialVersionUID = 6381462249347345007L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(nullable = false, updatable = false)
@@ -36,6 +34,11 @@ public class Course implements Serializable {
 	Date timeLine;
 	Date lastActive;
 	String rating;
+
+	public Course(String cName) {
+		this.cName = cName;
+	}
+
 	// courses can have many learners but at the moment will only have one till they are ready to be shared
 	@ManyToMany
 	@JoinTable (

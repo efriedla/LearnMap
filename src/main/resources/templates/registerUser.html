@@ -4,35 +4,60 @@
 <head>
     <meta charset = "ISO-8859-1" />
     <link href = "./css/styles.css" rel = "stylesheet"/>
-    <title>LearnMap</title>
+    <title>LearnMap register</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
 </head>
 <body>
 <nav th:replace="template :: nav"></nav>
-<div align="center">
+<div align="center container">
+<!--    <form th:action="@{/learner/register}" method="post" th:object="${learner}">-->
+<!--    <form>-->
+<!--        <label for="username">username:</label><br>-->
+<!--        <input type="text" id="username"  th:field="*{username}" required/><br>-->
+<!--        <div>-->
+<!--&lt;!&ndash;            <p class="error" th:each="error : ${#fields.errors('username')}" th:text="${error}"></p>&ndash;&gt;-->
+<!--        </div>-->
+
+<!--        <label for="email">email:</label><br>-->
+<!--        <input type="email" id="email"   th:field="*{email}" /><br>-->
+
+<!--        <div>-->
+<!--&lt;!&ndash;            <p class="error" th:each="error : ${#fields.errors('email')}" th:text="${error}"></p>&ndash;&gt;-->
+<!--        </div>-->
+
+<!--        <label for="password">password:</label><br>-->
+<!--        <input type="password" id="password"  th:field="*{password}" /><br>-->
+<!--        <div>-->
+<!--&lt;!&ndash;            <pre class="error" th:each="error : ${#fields.errors('password')}" th:text="${error}"></pre>&ndash;&gt;-->
+<!--        </div>-->
+
+<!--        <input type="submit" value="submit" />-->
+<!--    </form>-->
+
+
     <form th:action="@{/learner/register}" method="post" th:object="${learner}">
-        <label for="username">username:</label><br>
-        <input type="text" id="username"  th:field="*{username}" required/><br>
-        <div>
-            <p class="error" th:each="error : ${#fields.errors('username')}" th:text="${error}"></p>
+        <div class="form-group">
+            <label for="username">Email address</label>
+            <input type="username" class="form-control" id="username"  placeholder="Enter username">
+
+<!--            <input type="username" class="form-control" id="username"  th:field="*{username}"  placeholder="Enter username">-->
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1"  aria-describedby="emailHelp" placeholder="Enter email">
+
+<!--            <input type="email" class="form-control" id="exampleInputEmail1"  th:field="*{email}" aria-describedby="emailHelp" placeholder="Enter email">-->
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+
+<!--            <input type="password" class="form-control" id="exampleInputPassword1"  th:field="*{password}" placeholder="Password">-->
         </div>
 
-        <label for="email">email:</label><br>
-        <input type="email" id="email"   th:field="*{email}" /><br>
-
-        <div>
-            <p class="error" th:each="error : ${#fields.errors('email')}" th:text="${error}"></p>
-        </div>
-
-        <label for="password">password:</label><br>
-        <input type="password" id="password"  th:field="*{password}" /><br>
-        <div>
-            <pre class="error" th:each="error : ${#fields.errors('password')}" th:text="${error}"></pre>
-        </div>
-
-        <input type="submit" value="submit" />
-
+        <button type="submit"  value="submit" class="btn btn-primary">Submit</button>
     </form>
 </div>
 <footer th:replace="template :: footer"></footer>
