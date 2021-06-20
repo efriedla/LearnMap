@@ -13,4 +13,5 @@ public interface ILearnerRepo extends JpaRepository<Learner, Long> {
 	void deleteLearnerById(Long id);
 
 	Learner findLearnerById(Long id);
+	Learner findLearnerByUsername(String username);
 }

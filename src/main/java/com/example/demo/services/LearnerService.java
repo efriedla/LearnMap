@@ -37,8 +37,6 @@ public class LearnerService {
 
 	public Learner findLearnerById(Long id){
 //		return learnerRepo.findLearnerById(id).orElseThrow(() -> new UserPrincipalNotFoundException("User by id " + id + " was not found"));
-
-
 		return learnerRepo.findLearnerById(id);
 	}
 
