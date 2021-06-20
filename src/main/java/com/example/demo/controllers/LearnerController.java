@@ -1,5 +1,6 @@
 package com.example.demo.controllers;
 
+import com.example.demo.models.Course;
 import com.example.demo.models.Learner;
 import com.example.demo.services.LearnerService;
 import lombok.RequiredArgsConstructor;
@@ -11,6 +12,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.security.auth.Subject;
 import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
@@ -61,10 +63,18 @@ public class LearnerController {
 		//show in page
 //		log.info((Supplier<String>) learnerService.findAllLearners());
 //		log.info((Supplier<String>) learnerService.findLearnerById(principal));
-		log.info( learnerService.findLearnerById(id).getFirstName());
+//		log.info((Supplier<String>) learnerService.findLearnerById(id).getCourses());
 		Learner found =  learnerService.findLearnerById(id);
 		model.addAttribute("learner", found);
 		return "learnerHome";
 	}
+
+//	@PutMapping("/{id}/courses/")
+//	public String learnersCourses(Model mode, @PathVariable Long id){
+//		Learner learner = learnerService.findLearnerById(id);
+//
+//	}
+
+
 
 }

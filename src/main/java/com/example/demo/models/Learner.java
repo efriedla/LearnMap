@@ -7,38 +7,38 @@ import org.springframework.stereotype.Component;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Getter
 @Setter
+@FieldDefaults(level = AccessLevel.PRIVATE)
+@ToString
+@Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
-//@RequiredArgsConstructor
-//@FieldDefaults(level = AccessLevel.PRIVATE)
-@Entity //database
 public class Learner implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(nullable = false, updatable = false)
-	private Long id;
-	private String firstName;
-	private String lastName;
-	private String email;
-	private String phone;
-	private String imageUrl;
-	private String description;
+	Long id;
+	String firstName;
+	String lastName;
+	String email;
+	String phone;
+	String imageUrl;
+	String description;
 	//	for security
-	private String username;
-	private String password;
+	String username;
+	String password;
 	//  for preferences
-//	private Date dob;
-	private String gender;
-	private String likes;
+//	Date dob;
+	String gender;
+	String likes;
+	//learner can have many courses, and in the future can share the corse so the course can have many learners
 
 
-
-
-	//public Learner(){}
 
 	public Learner(String firstName, String lastName, String email, String phone, String imageUrl, String description, String username, String password, String gender, String likes) {
 		this.firstName = firstName;
@@ -52,5 +52,13 @@ public class Learner implements Serializable {
 		this.gender = gender;
 		this.likes = likes;
 	}
+	@ManyToMany
+	@JoinTable
+			(
+					name= "student_course",
+					joinColumns=@JoinColumn(name = "username"),
+					inverseJoinColumns=@JoinColumn( name = "cId")
+			)
+	List<Course> courses;
 
 }
