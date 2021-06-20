@@ -50,24 +50,26 @@ public class LearnerController {
 //			return "home";
 //		}
 //	}
-	@GetMapping("/allLearners")
-	public String findAllLearners(Model model){
-		//show in page
-//		log.info((Supplier<String>) learnerService.findAllLearners());
-//		log.info((Supplier<String>) learnerService.findLearnerById(0L));
-		model.addAttribute("learners", learnerService.findAllLearners());
-		return "allLearners";
-	}
-	@GetMapping("/{id}")
-	public String learnerHome(Model model, @PathVariable Long id,  Principal principal){
-		//show in page
-//		log.info((Supplier<String>) learnerService.findAllLearners());
-//		log.info((Supplier<String>) learnerService.findLearnerById(principal));
-//		log.info((Supplier<String>) learnerService.findLearnerById(id).getCourses());
-		Learner found =  learnerService.findLearnerById(id);
-		model.addAttribute("learner", found);
-		return "learnerHome";
-	}
+
+
+//	@GetMapping("/allLearners")
+//	public String findAllLearners(Model model){
+//		//show in page
+////		log.info((Supplier<String>) learnerService.findAllLearners());
+////		log.info((Supplier<String>) learnerService.findLearnerById(0L));
+//		model.addAttribute("learners", learnerService.findAllLearners());
+//		return "allLearners";
+//	}
+//	@GetMapping("/{id}")
+//	public String learnerHome(Model model, @PathVariable Long id,  Principal principal){
+//		//show in page
+////		log.info((Supplier<String>) learnerService.findAllLearners());
+////		log.info((Supplier<String>) learnerService.findLearnerById(principal));
+////		log.info((Supplier<String>) learnerService.findLearnerById(id).getCourses());
+//		Learner found =  learnerService.findLearnerById(id);
+//		model.addAttribute("learner", found);
+//		return "learnerHome";
+//	}
 
 //	@PutMapping("/{id}/courses/")
 //	public String learnersCourses(Model mode, @PathVariable Long id){
