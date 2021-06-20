@@ -9,11 +9,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Supplier;
@@ -56,9 +54,17 @@ public class LearnerController {
 //		log.info((Supplier<String>) learnerService.findAllLearners());
 //		log.info((Supplier<String>) learnerService.findLearnerById(0L));
 		model.addAttribute("learners", learnerService.findAllLearners());
-
-
 		return "allLearners";
+	}
+	@GetMapping("/{id}")
+	public String learnerHome(Model model, @PathVariable Long id,  Principal principal){
+		//show in page
+//		log.info((Supplier<String>) learnerService.findAllLearners());
+//		log.info((Supplier<String>) learnerService.findLearnerById(principal));
+		log.info( learnerService.findLearnerById(id).getFirstName());
+		Learner found =  learnerService.findLearnerById(id);
+		model.addAttribute("learner", found);
+		return "learnerHome";
 	}
 
 }
