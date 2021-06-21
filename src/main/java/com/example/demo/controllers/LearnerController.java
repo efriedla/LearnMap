@@ -24,11 +24,17 @@ import java.util.function.Supplier;
 @RequestMapping("learner")
 @Log
 public class LearnerController {
-	@Autowired
-	private final LearnerService learnerService;
 
+	private final LearnerService learnerService;
+	@Autowired
 	public LearnerController(LearnerService learnerService) {
 		this.learnerService = learnerService;
+	}
+
+
+	@ModelAttribute("learner")
+	public Learner newLearner(){
+		return new Learner();
 	}
 	@GetMapping("/register")
 	public String registerStudent(){
@@ -38,11 +44,9 @@ public class LearnerController {
 	@PostMapping("/submit")
 	public String newLearner(@ModelAttribute("learner") @Valid Learner learner, BindingResult result, Model model ){
 
-//		log.info((Supplier<String>) result);
-//		log.info((Supplier<String>) learner);
 		Learner nLearner = learnerService.addLearner(learner);
 		model.addAttribute("learner", nLearner);
-		log.info((Supplier<String>) nLearner);
+		log.info( "added *** "+ nLearner);
 		return "confirmLearner";
 	}
 

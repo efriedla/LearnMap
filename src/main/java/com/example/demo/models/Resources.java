@@ -29,6 +29,7 @@ public class Resources implements Serializable {
 					joinColumns=@JoinColumn(name = "cId"),
 					inverseJoinColumns=@JoinColumn( name = "rId")
 			)
+			@ToString.Exclude
 	List<Course> courses;
 
 }

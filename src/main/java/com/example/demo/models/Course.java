@@ -61,6 +61,7 @@ public class Course implements Serializable {
 					joinColumns=@JoinColumn(name = "rId"),
 					inverseJoinColumns=@JoinColumn( name = "cId")
 			)
+			@ToString.Exclude
 	List<Resources> resources;
 
 }

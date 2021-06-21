@@ -17,10 +17,10 @@
         <img class="card-img-top" th:src="@{${learner.imageUrl}}" alt="Card image cap">
         <div class="card-body">
             <p class="card-text"><span th:text = "${learner.email}"></span></p>
-            <p><span th:text = "${learner.firstName}"></span>
-                <span th:text = "${learner.lastName}"></span>
+            <p><span th:text = "${learner.username}"></span>
+                <span th:text = "${learner.password}"></span>
             </p>
-            <p  th:text = "${learner.username}"></p>
+<!--            <p  th:text = "${learner.username}"></p>-->
         </div>
     </div>
 

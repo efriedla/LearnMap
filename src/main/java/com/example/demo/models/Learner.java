@@ -48,18 +48,18 @@ public class Learner implements Serializable {
 
 
 
-	public Learner(String firstName, String lastName, String email, String phone, String imageUrl, String description, String username, String password, String gender, String likes) {
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.email = email;
-		this.phone = phone;
-		this.imageUrl = imageUrl;
-		this.description = description;
-		this.username = username;
-		this.password = password;
-		this.gender = gender;
-		this.likes = likes;
-	}
+//	public Learner(String firstName, String lastName, String email, String phone, String imageUrl, String description, String username, String password, String gender, String likes) {
+//		this.firstName = firstName;
+//		this.lastName = lastName;
+//		this.email = email;
+//		this.phone = phone;
+//		this.imageUrl = imageUrl;
+//		this.description = description;
+//		this.username = username;
+//		this.password = password;
+//		this.gender = gender;
+//		this.likes = likes;
+//	}
 
 	public Learner(String username, String email, String password) {
 		this.username = username;
@@ -74,6 +74,9 @@ public class Learner implements Serializable {
 					joinColumns=@JoinColumn(name = "username"),
 					inverseJoinColumns=@JoinColumn( name = "cId")
 			)
+			@ToString.Exclude
 	List<Course> courses;
+
+
 
 }
