@@ -13,6 +13,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.security.auth.Subject;
+import javax.validation.Valid;
 import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +33,17 @@ public class LearnerController {
 	@GetMapping("/register")
 	public String registerStudent(){
 		return "registerUser";
+	}
+
+	@PostMapping("/submit")
+	public String newLearner(@ModelAttribute("learner") @Valid Learner learner, BindingResult result, Model model ){
+
+//		log.info((Supplier<String>) result);
+//		log.info((Supplier<String>) learner);
+		Learner nLearner = learnerService.addLearner(learner);
+		model.addAttribute("learner", nLearner);
+		log.info((Supplier<String>) nLearner);
+		return "confirmLearner";
 	}
 
 	//create learner
