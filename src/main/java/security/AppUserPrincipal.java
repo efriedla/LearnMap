@@ -8,6 +8,10 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.*;
 
+/**
+ * this is where the Auth finds the users credentials
+ * ALSO known as AppUserDetails
+**/
 public class AppUserPrincipal
 		implements UserDetails
 {
@@ -23,13 +27,15 @@ public class AppUserPrincipal
 		if(null == authGroups){
 			return Collections.emptySet();
 		}
+		// init
 		Set<SimpleGrantedAuthority> grantedAuthorities = new HashSet<>();
+		// has a username and a group looped through and back into grantedAuthorities
 		authGroups.forEach(authGroup -> {
 			grantedAuthorities.add(new SimpleGrantedAuthority(authGroup.getAAuthGroup()));
 		});
+		// ["ROLE_ADMIN", "ROLE_USER", "WRITE]
 		return grantedAuthorities;
 
-		// return Collections.singleton(new SimpleGrantedAuthority("USER"));
 	}
 
 	@Override

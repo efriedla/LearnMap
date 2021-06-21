@@ -29,16 +29,16 @@ public class Learner implements Serializable {
 	Long id;
 	String firstName;
 	String lastName;
-	@Email(regexp = "\\b[\\w\\.-]+@[\\w\\.-]+\\.\\w{2,4}\\b",message = "Invalid email address")
+//	@Email(regexp = "\\b[\\w\\.-]+@[\\w\\.-]+\\.\\w{2,4}\\b",message = "Invalid email address")
 	String email;
 	String phone;
 	String imageUrl;
 	String description;
 	//	for security
-	@Length(min = 3, max = 25, message = "should be between {1} and {2}")
-	@NotBlank(message = "Please Enter a Username")
+//	@Length(min = 3, max = 25, message = "should be between {1} and {2}")
+//	@NotBlank(message = "Please Enter a Username")
 	String username;
-	@Pattern(regexp = "^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$", message = "- at least 8 characters\n- must contain at least 1 uppercase letter, 1 lowercase letter, and 1 number\n- Can contain special characters")
+//	@Pattern(regexp = "^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$", message = "- at least 8 characters\n- must contain at least 1 uppercase letter, 1 lowercase letter, and 1 number\n- Can contain special characters")
 	String password;
 	//  for preferences
 //	Date dob;

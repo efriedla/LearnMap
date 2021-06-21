@@ -32,13 +32,14 @@ public class StartUpConfig implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 	log.info("**** Start adding Learners sql statements ****");
-        learnerRepo.save(new Learner("habboubi", "habboubi@gmail.com", "W0rk123!"));
+        learnerRepo.save(new Learner("habboubi", "habboubi@gmail.com", "W0rk12345"));
         learnerRepo.save(new Learner("admin", "admin@gmail.com", "$2y$11$JcGGFLmi46mM4SKUGKSv8.2srUTueRcyxRoHfHSVK/voHjw9kEKv."));
         learnerRepo.save(new Learner("learner_one", "learner_one@gmail.com", "$2y$11$JcGGFLmi46mM4SKUGKSv8.2srUTueRcyxRoHfHSVK/voHjw9kEKv."));
         learnerRepo.save(new Learner("learner_two", "learner_two@gmail.com", "$2y$11$JcGGFLmi46mM4SKUGKSv8.2srUTueRcyxRoHfHSVK/voHjw9kEKv."));
         learnerRepo.save(new Learner("learner_three", "learner_three@gmail.com", "$2y$11$JcGGFLmi46mM4SKUGKSv8.2srUTueRcyxRoHfHSVK/voHjw9kEKv."));
 		learnerRepo.findLearnerById(1L).setImageUrl("https://images.pexels.com/photos/4827667/pexels-photo-4827667.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500");
-        log.info("**** End of sql statements ****");
+
+		log.info("**** End of sql statements ****");
 		log.info("**** Start adding Courses sql statements ****");
 		courseRepo.save(new Course("Java"));
 		courseRepo.save(new Course("Database"));

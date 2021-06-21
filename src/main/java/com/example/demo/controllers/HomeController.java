@@ -35,6 +35,7 @@ public class HomeController {
 	}
 	@GetMapping("/login")
 	public String login(){
+	System.out.println("***here");
 		return "login";
 	}
 	//Seen if page is not accessible to user.

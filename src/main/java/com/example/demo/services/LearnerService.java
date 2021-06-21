@@ -35,10 +35,12 @@ public class LearnerService {
 		return  learnerRepo.save(learner);
 	}
 
+
 	public Learner findLearnerById(Long id){
 //		return learnerRepo.findLearnerById(id).orElseThrow(() -> new UserPrincipalNotFoundException("User by id " + id + " was not found"));
 		return learnerRepo.findLearnerById(id);
 	}
+	public Learner findLearnerByUsername(String username){ return learnerRepo.findLearnerByUsername(username); }
 
 	public void deleteLearner(Long id){
 		learnerRepo.deleteLearnerById(id);

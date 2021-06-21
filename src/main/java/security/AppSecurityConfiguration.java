@@ -41,8 +41,6 @@ public class AppSecurityConfiguration
 	protected void configure(HttpSecurity http) throws Exception {
 		http
 				.csrf().disable()
-
-
 				.authorizeRequests()
 				.antMatchers("/learner/register").permitAll()
 				.antMatchers("/login").permitAll()
