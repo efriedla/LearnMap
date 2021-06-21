@@ -36,6 +36,7 @@ public class AppSecurityConfiguration
 		auth.authenticationProvider(authenticationProvider());
 	}
 	//1
+	//controlls what/who can see what
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http
@@ -44,6 +45,7 @@ public class AppSecurityConfiguration
 
 				.authorizeRequests()
 				.antMatchers("/learner/register").permitAll()
+				.antMatchers("/login").permitAll()
 				.antMatchers("/").permitAll()
 				.antMatchers("/console/**").hasAuthority("ROLE_ADMIN")
 				.antMatchers("/learner/**").hasAnyAuthority("ROLE_USER","ROLE_ADMIN")
