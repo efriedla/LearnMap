@@ -16,8 +16,6 @@ import java.io.Serializable;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Component
 public class AuthGroup implements Serializable {
-
-
 	private static final long serialVersionUID = 8349938216666765198L;
 
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
