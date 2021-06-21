@@ -36,6 +36,11 @@ public class Course implements Serializable {
 	Date timeLine;
 	Date lastActive;
 	String rating;
+
+	public Course(String cName) {
+		this.cName = cName;
+	}
+
 	// courses can have many learners but at the moment will only have one till they are ready to be shared
 	@ManyToMany
 	@JoinTable (
@@ -56,6 +61,7 @@ public class Course implements Serializable {
 					joinColumns=@JoinColumn(name = "rId"),
 					inverseJoinColumns=@JoinColumn( name = "cId")
 			)
+			@ToString.Exclude
 	List<Resources> resources;
 
 }

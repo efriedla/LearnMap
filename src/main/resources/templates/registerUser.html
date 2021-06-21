@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html  xmlns:th="http://www.thymeleaf.org"
-       xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="en">
+       xmlns:sec="http://www.thymeleaf.org/extras/spring-security.html" lang="en">
 <head>
     <meta charset = "ISO-8859-1" />
     <link href = "./css/styles.css" rel = "stylesheet"/>
@@ -11,14 +11,19 @@
 <body>
 <nav th:replace="template :: nav"></nav>
 <div align="center">
-    <form th:action="@{/learner/register}" method="post" th:object="${learner}">
+    <form th:action="@{/learner/submit}" method="post" th:object="${learner}">
+        <di>
+
+        </di>
         <label for="username">username:</label><br>
-        <input type="text" id="username"  th:field="*{username}" required/><br>
+<!--        <input type="text" id="username"  >-->
+        <input type="text" id="username"  th:field="*{username}">
         <div>
             <p class="error" th:each="error : ${#fields.errors('username')}" th:text="${error}"></p>
         </div>
 
         <label for="email">email:</label><br>
+<!--        <input type="email" id="email"   /><br>-->
         <input type="email" id="email"   th:field="*{email}" /><br>
 
         <div>
@@ -27,6 +32,7 @@
 
         <label for="password">password:</label><br>
         <input type="password" id="password"  th:field="*{password}" /><br>
+<!--        <input type="password" id="password"  /><br>-->
         <div>
             <pre class="error" th:each="error : ${#fields.errors('password')}" th:text="${error}"></pre>
         </div>
