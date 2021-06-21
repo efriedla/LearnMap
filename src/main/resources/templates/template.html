@@ -52,12 +52,15 @@
                     <div sec:authorize="isAuthenticated()">
                         <a class="nav-link active" aria-current="page" th:href="@{/}">User: <span sec:authentication="name"></span> Privileges: <span sec:authentication="principal.authorities"></span></a>
                     </div>
+                    <a class="nav-link active" aria-current="page" th:href="@{/}">User: <span sec:authentication="name"></span> Privileges: <span sec:authentication="principal.authorities"></span></a>
+
                 </li>
                 <li class="nav-item"><a class="nav-link active" aria-current="page" th:href="@{/}">Home</a></li>
                 <li class="nav-item"><a class="nav-link" th:href="@{/learner/register}">Register New Student</a></li>
                 <div sec:authorize="isAuthenticated()">
                     <li class="nav-item"><a class="nav-link" th:href="@{/courses/registercourse}">Register To a Course</a></li>
                 </div>
+                <li class="nav-item"><a class="nav-link" th:href="@{/login}">Login</a></li>
 
                 <div sec:authorize="isAnonymous()">
                     <li class="nav-item"><a class="nav-link" th:href="@{/login}">Login</a></li>

@@ -31,11 +31,12 @@ public class LearnerController {
 		this.learnerService = learnerService;
 	}
 
-
+	//learner controller
 	@ModelAttribute("learner")
 	public Learner newLearner(){
 		return new Learner();
 	}
+
 	@GetMapping("/register")
 	public String registerStudent(){
 		return "registerUser";
