@@ -52,6 +52,13 @@ public class Learner implements Serializable {
 		this.gender = gender;
 		this.likes = likes;
 	}
+
+	public Learner(String username, String email, String password) {
+		this.username = username;
+		this.email = email;
+		this.password = password;
+	}
+
 	@ManyToMany
 	@JoinTable
 			(

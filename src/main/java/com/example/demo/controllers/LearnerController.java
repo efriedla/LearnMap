@@ -29,6 +29,10 @@ public class LearnerController {
 	public LearnerController(LearnerService learnerService) {
 		this.learnerService = learnerService;
 	}
+	@GetMapping("/register")
+	public String registerStudent(){
+		return "registerUser";
+	}
 
 	//create learner
 //	@GetMapping("/register")
