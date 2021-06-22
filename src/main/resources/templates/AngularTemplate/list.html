@@ -18,9 +18,24 @@
     <input ng-model="addCourseTemplate" />
     <button ng-click="addItem(courseTemplate.list, addCourseTemplate)"> + </button>
 
-<script src="../angJs/app.js"></script>
-<script src="../angJs/controllers/MainController.js"></script>
+    <h2>second controller test</h2>
+    <div ng-controller="LearnerController">
+        <h1>All Learners</h1>
+        <div ng-repeat="learner in list">
+            <h3>{{learner.username}}</h3>
+            <p>{{learner.email}}</p>
+        </div>
+
+    </div>
+
+    <script src="../angJs/app.js"></script>
+<!--    controllers-->
+    <script src="../angJs/controllers/MainController.js"></script>
+    <script src="../angJs/controllers/LearnerController.js"></script>
+<!--    directives -->
     <script src="../angJs/directives/singlelist.js"></script>
+    <!--    services   -->
+    <script src="../angJs/services/LearnerService.js"></script>
 
 </body>
 </html>
