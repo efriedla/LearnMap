@@ -4,22 +4,23 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>Angular test</title>
-    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link href="../style.css" rel="stylesheet" type="text/css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js" integrity="sha512-Lrd4lY1eAdzAhDC85I72/+oDee8Zut38nRh9fKQsssTHhm91CRwwOAwjPB0M7UtSlWryD1dHVTBbyLadXwUJDA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
 <body ng-app="ToDoList">
 <div ng-controller="MainController">
-    <!-- <li> {{ list[0] }}</li>
-    <li> {{ list[1] }}</li>
-    <li> {{ list[2] }}</li> -->
-    <div ng-repeat="item in list">
-        <li> {{ item }}</li>
-    </div>
-    <input ng-model="addToDo" />
-    <button ng-click="addItem()"> + </button>
+    <singlelist mylist="course"></singlelist>
+    <input ng-model="addCourse" />
+    <button ng-click="addItem(course.list, addCourse)"> + </button>
+
+    <singlelist mylist="courseTemplate"></singlelist>
+    <input ng-model="addCourseTemplate" />
+    <button ng-click="addItem(courseTemplate.list, addCourseTemplate)"> + </button>
 
 <script src="../angJs/app.js"></script>
 <script src="../angJs/controllers/MainController.js"></script>
+    <script src="../angJs/directives/singlelist.js"></script>
+
 </body>
 </html>
