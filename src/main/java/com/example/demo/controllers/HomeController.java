@@ -19,6 +19,12 @@ public class HomeController {
 //	public String home() {
 //		return "redirect:index";
 //	}
+@GetMapping({"test"})
+public String ang() {
+	return "AngularTemplate/list";
+}
+
+
 	@GetMapping({"/","index"})
 	public String index() {
 		return "index";

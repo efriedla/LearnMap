@@ -17,6 +17,7 @@ import javax.validation.Valid;
 import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.function.Supplier;
 
 
@@ -44,11 +45,15 @@ public class LearnerController {
 
 	@PostMapping("/submit")
 	public String newLearner(@ModelAttribute("learner") @Valid Learner learner, BindingResult result, Model model ){
-
-		Learner nLearner = learnerService.addLearner(learner);
-		model.addAttribute("learner", nLearner);
-		log.info( "added *** "+ nLearner);
-		return "confirmLearner";
+		Optional<Learner> learnerbyemail = learnerService.findLearnerByEmail(learner.getEmail());
+		if(learnerbyemail.isPresent()){
+			throw new IllegalArgumentException("email taken");
+		}else{
+			Learner nLearner = learnerService.addLearner(learner);
+			model.addAttribute("learner", nLearner);
+			log.info( "added *** "+ nLearner);
+			return "confirmLearner";
+		}
 	}
 
 	//create learner
@@ -73,14 +78,14 @@ public class LearnerController {
 //	}
 
 
-//	@GetMapping("/allLearners")
-//	public String findAllLearners(Model model){
-//		//show in page
-////		log.info((Supplier<String>) learnerService.findAllLearners());
-////		log.info((Supplier<String>) learnerService.findLearnerById(0L));
-//		model.addAttribute("learners", learnerService.findAllLearners());
-//		return "allLearners";
-//	}
+	@GetMapping("/allLearners")
+	public String findAllLearners(Model model){
+		//show in page
+//		log.info((Supplier<String>) learnerService.findAllLearners());
+//		log.info((Supplier<String>) learnerService.findLearnerById(0L));
+		model.addAttribute("learners", learnerService.findAllLearners());
+		return "allLearners";
+	}
 //	@GetMapping("/{id}")
 //	public String learnerHome(Model model, @PathVariable Long id,  Principal principal){
 //		//show in page
@@ -91,6 +96,13 @@ public class LearnerController {
 //		model.addAttribute("learner", found);
 //		return "learnerHome";
 //	}
+	@GetMapping("/{id}")
+	public String profile(Model model, @PathVariable Long id){
+		Learner found = learnerService.findLearnerById(id);
+		model.addAttribute("learner", found);
+		log.info("in profile "+ found.getUsername());
+		return "userProfile";
+	}
 
 //	@PutMapping("/{id}/courses/")
 //	public String learnersCourses(Model mode, @PathVariable Long id){

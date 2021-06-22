@@ -14,39 +14,26 @@ import java.security.Principal;
 @Controller
 @RequestMapping("console")
 public class AdminController {
-	@Autowired
-	private final LearnerService adminController;
-
-	public AdminController(LearnerService adminController) {
-		this.adminController = adminController;
-	}
-
-//	@GetMapping("/getallstudent")
-//	public String getUsers(Model model){
+//	@Autowired
+//	private final LearnerService adminController;
 //
-//		return "getallstudent";
+//	public AdminController(LearnerService adminController) {
+//		this.adminController = adminController;
 //	}
-
-//	@PreAuthorize("hasAuthority('WRITE')") // bring back when using security
-
-//	@GetMapping("/getlearnerbyid")
-//	public String getLearnerById(){
 //
+//
+//	@GetMapping("/allLearners")
+//	public String findAllLearners(Model model){
+//		//show in page
+//		model.addAttribute("learners", adminController.findAllLearners());
+//		return "allLearners";
+//	}
+////	@PreAuthorize("hasAuthority('WRITE')") // bring back when using security
+//	@GetMapping("/{id}")
+//	public String learnerHome(Model model, @PathVariable Long id, Principal principal){
+//		//show in page
+//		Learner found =  adminController.findLearnerById(id);
+//		model.addAttribute("learner", found);
 //		return "learnerHome";
 //	}
-
-	@GetMapping("/allLearners")
-	public String findAllLearners(Model model){
-		//show in page
-		model.addAttribute("learners", adminController.findAllLearners());
-		return "allLearners";
-	}
-//	@PreAuthorize("hasAuthority('WRITE')") // bring back when using security
-	@GetMapping("/{id}")
-	public String learnerHome(Model model, @PathVariable Long id, Principal principal){
-		//show in page
-		Learner found =  adminController.findLearnerById(id);
-		model.addAttribute("learner", found);
-		return "learnerHome";
-	}
 }

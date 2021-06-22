@@ -40,12 +40,16 @@ public class LearnerService {
 //		return learnerRepo.findLearnerById(id).orElseThrow(() -> new UserPrincipalNotFoundException("User by id " + id + " was not found"));
 		return learnerRepo.findLearnerById(id);
 	}
-	public Learner findLearnerByUsername(String username){ return learnerRepo.findLearnerByUsername(username); }
+	public Learner findLearnerByUsername(String username){
+		return learnerRepo.findLearnerByUsername(username);
+	}
 
 	public void deleteLearner(Long id){
 		learnerRepo.deleteLearnerById(id);
 	}
 
 
-
+	public Optional<Learner> findLearnerByEmail(String email) {
+		return learnerRepo.findLearnerByEmail(email);
+	}
 }
