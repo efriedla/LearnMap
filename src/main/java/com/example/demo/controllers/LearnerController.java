@@ -101,15 +101,32 @@ public class LearnerController {
 		Learner found = learnerService.findLearnerById(id);
 		model.addAttribute("learner", found);
 		log.info("in profile "+ found.getUsername());
-		return "userProfile";
+		return "learnerHome";
 	}
 
-//	@PutMapping("/{id}/courses/")
-//	public String learnersCourses(Model mode, @PathVariable Long id){
-//		Learner learner = learnerService.findLearnerById(id);
-//
-//	}
-
+	@GetMapping("/update/{id}")
+	public String updateProfile(Model model, @PathVariable Long id){
+		Learner found = learnerService.findLearnerById(id);
+		model.addAttribute("learner", found);
+		log.info("in profile "+ found.getUsername());
+		return "learnerEdit";
+	}
+	@PostMapping("/save")
+	public String editLearner(@ModelAttribute("learner") Model model, @Valid Learner learner, BindingResult result,
+                              @RequestParam("id") Long id,@RequestParam("email") String email,
+                              @RequestParam("firstName") String firstName,
+                              @RequestParam("lastName") String lastName,@RequestParam("username") String username
+	                          ){
+		Learner bob = new Learner();
+		bob.setId(id);
+		bob.setFirstName(firstName);
+		bob.setLastName(lastName);
+		bob.setEmail(email);
+		bob.setUsername(username);
+		log.info(String.valueOf(bob));
+		learnerService.updateLearner(bob);
+		return"learnerHome";
+	}
 
 
 }

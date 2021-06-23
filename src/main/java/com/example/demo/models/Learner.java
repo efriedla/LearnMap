@@ -17,14 +17,16 @@ import java.util.Set;
 
 @Getter
 @Setter
+@EqualsAndHashCode
 @FieldDefaults(level = AccessLevel.PRIVATE)
-@ToString
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
+@Component
 public class Learner implements Serializable {
+	private static final long serialVersionUID = -2413271188862611207L;
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(nullable = false, updatable = false)
 	Long id;
 	String firstName;

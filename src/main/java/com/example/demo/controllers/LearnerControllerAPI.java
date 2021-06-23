@@ -36,25 +36,32 @@ public class LearnerControllerAPI {
 	}
 
 
-	@GetMapping("/find/{id}")
+	@GetMapping("/find1/{id}")
 	public ResponseEntity<Learner> getLearnerById (@PathVariable Long id){
 		Learner learner =  learnerService.findLearnerById(id);
 		return new ResponseEntity<>(learner, HttpStatus.OK);
 	}
 
-	@PostMapping("/add")
+	@PostMapping("/add1")
 	public ResponseEntity<Learner> addLearner(@RequestBody Learner learner){
 		Learner newLearner = learnerService.addLearner(learner);
 		return new ResponseEntity<>(newLearner, HttpStatus.CREATED);
 	}
 
-	@PutMapping("/update")
+	//new
+	@GetMapping("/update1/{id}")
+	public ResponseEntity<Learner> getLearnerByIdToUpdate (@PathVariable Long id){
+		Learner learner =  learnerService.findLearnerById(id);
+		return new ResponseEntity<>(learner, HttpStatus.OK);
+	}
+
+	@PutMapping("/update1/{id}/save")
 	public ResponseEntity<Learner> updateLearner(@RequestBody Learner learner){
 		Learner updateLearner = learnerService.updateLearner(learner);
 		return new ResponseEntity<>(updateLearner, HttpStatus.OK);
 	}
 
-	@DeleteMapping("/delete/{id}")
+	@DeleteMapping("/delete1/{id}")
 	public ResponseEntity<?> deleteLearner(@PathVariable Long id){
 		learnerService.deleteLearner(id);
 		return new ResponseEntity<>(HttpStatus.OK);

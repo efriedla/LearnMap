@@ -13,18 +13,46 @@
     <singlelist mylist="course"></singlelist>
     <input ng-model="addCourse" />
     <button ng-click="addItem(course.list, addCourse)"> + </button>
+    <div>
+        <h2>test show all</h2>
+        <div ng-repeat="learner in learnerList.list">
+            <h3>{{learner.username}}</h3>
+            <p ng-model="id">{{learner.id}}</p>
+            <button ng-click="updateLearner(learnerList.list, 1"> + toupdate learner? </button>
+        </div>
 
-    <singlelist mylist="courseTemplate"></singlelist>
+    </div>
+
+<!--    <singlelist mylist="courseTemplate"></singlelist>-->
+    <h3>{{ courseTemplate.title }}</h3>
+    <div ng-repeat="item in courseTemplate.list">
+        <li><input value="{{ item }}"> </li>
+    </div>
+
+
     <input ng-model="addCourseTemplate" />
-    <button ng-click="addItem(courseTemplate.list, addCourseTemplate)"> + </button>
+<!--    function, grabs list , input-->
+    <button ng-click="showAll()">show all</button>
+    <button ng-click="addItem(courseTemplate.list, addCourseTemplate)"> + Learner </button>
+    <button ng-click="updateLearner(courseTemplate.list, addCourseTemplate)"> + toupdate learner? </button>
+<!--    <button ng-click="addItem(courseTemplate.list, addCourseTemplate)"> + Course </button>-->
 
+
+
+<!--    end of main controller-->
+</div>
+<!--    reads all from database-->
     <h2>second controller test</h2>
     <div ng-controller="LearnerController">
         <h1>All Learners</h1>
         <div ng-repeat="learner in list">
             <h3>{{learner.username}}</h3>
+            <h3>{{learner.firstName}}</h3>
             <p>{{learner.email}}</p>
+            <h3>-------------</h3>
         </div>
+<!--        <a th:href="@{'/users/edit/' + ${learner.id}}"><button type="submit" class="btn btn-primary">Edit</button></a>-->
+
 
     </div>
 

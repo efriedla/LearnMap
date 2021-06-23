@@ -32,7 +32,7 @@ public class StartUpConfig implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 	log.info("**** Start adding Learners sql statements ****");
-        learnerRepo.save(new Learner("habboubi", "habboubi@gmail.com", "W0rk12345"));
+        learnerRepo.save(new Learner("mainUser", "thisEmail@gmail.com", "W0rk12345"));
         learnerRepo.save(new Learner("admin", "admin@gmail.com", "$2y$11$JcGGFLmi46mM4SKUGKSv8.2srUTueRcyxRoHfHSVK/voHjw9kEKv."));
         learnerRepo.save(new Learner("learner_one", "learner_one@gmail.com", "$2y$11$JcGGFLmi46mM4SKUGKSv8.2srUTueRcyxRoHfHSVK/voHjw9kEKv."));
         learnerRepo.save(new Learner("learner_two", "learner_two@gmail.com", "$2y$11$JcGGFLmi46mM4SKUGKSv8.2srUTueRcyxRoHfHSVK/voHjw9kEKv."));

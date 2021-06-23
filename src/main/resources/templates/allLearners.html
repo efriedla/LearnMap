@@ -20,9 +20,10 @@
                 <div class="card-body">
                     <h3 th:text="${learner.id}"></h3>
                     <p class="card-text"><span th:text = "${learner.email}"></span></p>
-                    <p><span th:text = "${learner.firstName}"></span>
-                        <span th:text = "${learner.lastName}"></span>
-                    </p>
+                    <li th:text = "${learner.firstName}"></li>
+                    <li th:text = "${learner.lastName}"></li>
+                    <a th:href="@{'/learner/' + ${learner.id}}"><button type="submit" class="btn btn-primary">choose</button></a>
+
                 </div>
             </div>
 

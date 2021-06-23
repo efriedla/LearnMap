@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class CourseService {
@@ -22,6 +21,22 @@ public class CourseService {
 
 	public List<Course> getAllCourses() {
 		return courseRepo.findAll();
+	}
+
+	public List<Course> findAllCourses() { return courseRepo.findAll(); }
+
+//	public Course findCourseById(Long id) {
+//		//		return learnerRepo.findLearnerById(id).orElseThrow(() -> new UserPrincipalNotFoundException("User by id " + id + " was not found"));
+//		return courseRepo.findCourseById(id);
+//	}
+
+	public Course addCourse(Course course) { return courseRepo.save(course);
+	}
+
+	public Course updateCourse(Course course) { return courseRepo.save(course);
+	}
+
+	public void deleteCourse(Long id) { courseRepo.deleteById(id);
 	}
 //	public Optional<Course> getCourseById(Long id) {
 //		Optional<Course> courseOptional = courseRepo.findCourseById(id);

@@ -9,6 +9,8 @@ import com.example.demo.dao.ILearnerRepo;
 import com.example.demo.models.Learner;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import javax.transaction.Transactional;
 import java.nio.file.attribute.UserPrincipalNotFoundException;
 import java.util.List;
 import java.util.Optional;
@@ -16,7 +18,7 @@ import java.util.Optional;
 
 @Service
 public class LearnerService {
-	private final ILearnerRepo learnerRepo;
+	ILearnerRepo learnerRepo;
 
 	@Autowired
 	public LearnerService(ILearnerRepo learnerRepo) {
@@ -31,6 +33,7 @@ public class LearnerService {
 		return learnerRepo.findAll();
 	}
 
+	@Transactional
 	public Learner updateLearner(Learner learner){
 		return  learnerRepo.save(learner);
 	}
