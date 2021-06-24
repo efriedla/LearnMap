@@ -19,9 +19,9 @@
         <img class="card-img-top" th:src="@{${learner.imageUrl}}" alt="Card image cap">
         <div class="card-body">
             <p class="card-text"><span th:text = "${learner.email}"></span></p>
-            <li th:text = "${learner.firstName}"></li>
-            <li th:text = "${learner.lastName}"></li>
-            <li th:text = "${learner.username}"></li>
+            <li name="firstName" th:text = "${learner.firstName}"></li>
+            <li name="lastName" th:text = "${learner.lastName}"></li>
+            <li name="username" th:text = "${learner.username}"></li>
 
             <a th:href="@{'/learner/update/' + ${learner.id}}"><button type="submit" class="btn btn-primary">Edit</button></a>
         </div>

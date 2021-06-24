@@ -15,8 +15,9 @@ import java.util.Date;
 //@RequiredArgsConstructor
 //@FieldDefaults(level = AccessLevel.PRIVATE)
 @Entity //database
-//@Component //spring boot component
+@Component //spring boot component
 public class Topic implements Serializable {
+	private static final long serialVersionUID = 8124998780052256833L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(nullable = false, updatable = false)

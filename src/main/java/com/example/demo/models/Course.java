@@ -21,8 +21,9 @@ import java.util.Set;
 @AllArgsConstructor
 @ToString
 @Table
-//@Component //spring boot component
+@Component //spring boot component
 public class Course implements Serializable {
+	private static final long serialVersionUID = 3141982296784176167L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(nullable = false, updatable = false)
@@ -42,26 +43,15 @@ public class Course implements Serializable {
 	}
 
 	// courses can have many learners but at the moment will only have one till they are ready to be shared
-	@ManyToMany
-	@JoinTable (
-			name="learner_course",
-			inverseJoinColumns=@JoinColumn(name = "username"),
-			joinColumns=@JoinColumn(name = "cId")
-	)
+	@ManyToMany(mappedBy = "courses")
 	List<Learner> learners;
 
 	@OneToMany(mappedBy = "course", fetch = FetchType.LAZY,
 			cascade = CascadeType.ALL)
 	List<CourseTask> tasks;
 
-	@ManyToMany
-	@JoinTable
-			(
-					name= "resources",
-					joinColumns=@JoinColumn(name = "rId"),
-					inverseJoinColumns=@JoinColumn( name = "cId")
-			)
-			@ToString.Exclude
+	@ManyToMany(mappedBy = "coursesr")
+	@ToString.Exclude
 	List<Resources> resources;
 
 }

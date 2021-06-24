@@ -5,6 +5,7 @@ import com.example.demo.models.Learner;
 import com.example.demo.services.LearnerService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.java.Log;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,7 +24,7 @@ import java.util.function.Supplier;
 
 @Controller
 @RequestMapping("learner")
-@Log
+@Slf4j
 public class LearnerController {
 
 	private final LearnerService learnerService;
@@ -109,6 +110,7 @@ public class LearnerController {
 		Learner found = learnerService.findLearnerById(id);
 		model.addAttribute("learner", found);
 		log.info("in profile "+ found.getUsername());
+		log.warn(found.getUsername());
 		return "learnerEdit";
 	}
 	@PostMapping("/save")
@@ -117,13 +119,19 @@ public class LearnerController {
                               @RequestParam("firstName") String firstName,
                               @RequestParam("lastName") String lastName,@RequestParam("username") String username
 	                          ){
+
+		log.warn(String.valueOf(id));
+		log.warn(firstName);
+		log.warn(lastName);
+		log.warn(username);
+
 		Learner bob = new Learner();
 		bob.setId(id);
 		bob.setFirstName(firstName);
 		bob.setLastName(lastName);
 		bob.setEmail(email);
 		bob.setUsername(username);
-		log.info(String.valueOf(bob));
+		log.warn(String.valueOf(bob));
 		learnerService.updateLearner(bob);
 		return"learnerHome";
 	}
